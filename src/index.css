@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'UrLight';
+    src: url(./assets/fonts/Urbanist-Light.ttf);
+}
+@font-face {
+    font-family: 'UrMedium';
+    src: url(./assets/fonts/Urbanist-Med.ttf);
+}
+@font-face {
+    font-family: 'UrRegular';
+    src: url(./assets/fonts/Urbanist-Regular.ttf);
+}
