@@ -82,7 +82,7 @@ const Homepage = () => {
       </div>
 
       {/* Rooms */}
-      <div className="rooms text-sm mt-6 flex justify-between items-center whitespace-nowrap gap-2 overflow-x-auto">
+      <div className="rooms text-sm mt-6 flex justify-between items-center whitespace-nowrap gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {["Home", "Living room", "Bedroom", "Kitchen", "Garage"].map(
           (room, idx) => (
             <button
