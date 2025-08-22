@@ -29,8 +29,8 @@ This project is designed for **mobile and responsive screens only**. Laptop/desk
 ## 📱 Screenshots
 
 <div align="center">
-  <img src="screenshots/mobile1.png" width="200" alt="Mobile view 1"/>
-  <img src="screenshots/mobile2.png" width="200" alt="Mobile view 2"/>
+  <img src="/screenshots/ss01.png" width="200" alt="Mobile view 1"/>
+  <img src="/screenshots/ss01.png" width="200" alt="Mobile view 2"/>
 </div>
 
 > *Screenshots show the responsive mobile view of the control panel.*
