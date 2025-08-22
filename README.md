@@ -1,12 +1,55 @@
-# React + Vite
+# Assignment 01 - Smart Home Control Panel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-17.0.2-blue?logo=react&logoColor=white)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0.0-blue?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.12.2-green?logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-Currently, two official plugins are available:
+A modern **Smart Home Control Panel** built with **ReactJS**, **TailwindCSS**, and **GSAP** animations.  
+This project is designed for **mobile and responsive screens only**. Laptop/desktop version is **not available** yet.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Control different rooms and devices in a visually appealing panel.  
+- Smooth animations using **GSAP**.  
+- Fully **responsive on mobile screens**.  
+- Custom scrollable room selector with **hidden horizontal scrollbar**.  
+
+---
+
+## 🛠 Tech Stack
+
+- **ReactJS** – Component-based frontend.  
+- **TailwindCSS** – Utility-first styling and responsive design.  
+- **GSAP** – For animations and interactive transitions.
+
+---
+
+## 📱 Screenshots
+
+<div align="center">
+  <img src="screenshots/mobile1.png" width="200" alt="Mobile view 1"/>
+  <img src="screenshots/mobile2.png" width="200" alt="Mobile view 2"/>
+</div>
+
+> *Screenshots show the responsive mobile view of the control panel.*
+
+---
+
+## 🌐 Live Demo
+
+Check out the live version of the project here:  
+[Smart Home Control Panel Live Demo](https://smart-home-control-panel-26w88xrux-vivek28jaiswals-projects.vercel.app/)
+
+---
+
+## 🚀 Installation & Setup
+
+To run this project locally, simply clone the repository, install dependencies, and start the development server:
+
+```bash
+git clone https://github.com/vivek28Jaiswal/Smart-home.git
+cd Smart-home
+npm install
+npm start
