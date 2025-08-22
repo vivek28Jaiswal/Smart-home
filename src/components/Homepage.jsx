@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BentoContainer from "./BentoContainer";
-import profilePic from "../assets/images/profilePic.jpeg";
+import profilePic from "/images/profilePic.jpeg";
 import { VscHome } from "react-icons/vsc";
 import { PiBellSimpleRinging } from "react-icons/pi";
 import { MdOutlineCastConnected } from "react-icons/md";
 import { RiSettingsLine, RiUserSettingsLine } from "react-icons/ri";
+import getWeatherData from "../utils/getWeather";
 
 const tabs = [
   { label: "Home", icon: <VscHome />, active: true },
@@ -14,6 +15,13 @@ const tabs = [
 ];
 
 const Homepage = () => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    getWeatherData()
+      .then((res) => setData(res))
+      .catch((err) => console.error("cannot fetch weather ", err));
+  }, []);
+
   let now = new Date();
   let hours = now.getHours();
 
@@ -66,8 +74,10 @@ const Homepage = () => {
         {/* Weather */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 shadow-lg">
           <h3 className="text-xs text-neutral-300">Weather</h3>
-          <p className="text-2xl font-semibold mt-2">28°C</p>
-          <p className="text-xs text-neutral-400 mt-1">Sunny</p>
+          <p className="text-2xl font-semibold mt-2">
+            {Math.floor(data?.temperature)} °C
+          </p>
+          <p className="text-xs text-neutral-400 mt-1">{data?.description}</p>
         </div>
       </div>
 
