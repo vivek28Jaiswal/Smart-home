@@ -1,40 +1,70 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import ToggleButton from "./ToggleButton";
+import { IoAddOutline } from "react-icons/io5";
 
-const Overlay = () => (
-  <div className="absolute inset-0 flex items-center justify-center z-10">
-    <div className="w-full h-full bg-[url('/overlay.png')] bg-center bg-cover"></div>
-  </div>
-);
+const Overlay = ({ isOn }) => {
+  const overlayRef = useRef(null);
 
-const BentoCard = ({ title, subtitle, img, height, imgClass }) => (
-  <div
-    className={`relative ${height} w-full rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg text-white overflow-hidden`}
-  >
-    {/* Overlay */}
-    <Overlay />
+  useEffect(() => {
+    if (isOn) {
+      gsap.to(overlayRef.current, {
+        autoAlpha: 1, // opacity + visibility
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to(overlayRef.current, {
+        autoAlpha: 0,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+    }
+  }, [isOn]);
 
-    {/* Image */}
-    {img && (
-      <img
-        src={img}
-        alt={title}
-        className={`absolute object-contain z-20 ${
-          imgClass || "-top-20 w-full h-full"
-        }`}
-      />
-    )}
-
-    {/* Content */}
-    <div className="relative z-30 flex h-full items-end justify-between px-2 py-4">
-      <div className="flex flex-col">
-        <h1 className="text-lg leading-none">{title}</h1>
-        <p className="text-xs">{subtitle}</p>
-      </div>
-      <ToggleButton />
+  return (
+    <div
+      ref={overlayRef}
+      className="absolute inset-0 z-10 flex items-center justify-center opacity-0 invisible"
+    >
+      {/* Background overlay */}
+      <div className="w-full h-full bg-[url('/overlay.png')] bg-center bg-cover" />
     </div>
-  </div>
-);
+  );
+};
+
+const BentoCard = ({ title, subtitle, img, height, imgClass }) => {
+  const [isOn, setIsOn] = useState(false);
+
+  return (
+    <div
+      className={`relative ${height} w-full rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg text-white overflow-hidden`}
+    >
+      {/* Overlay */}
+      <Overlay isOn={isOn} />
+
+      {/* Image */}
+      {img && (
+        <img
+          src={img}
+          alt={title}
+          className={`absolute object-contain z-20 ${
+            imgClass || "-top-20 w-full h-full"
+          }`}
+        />
+      )}
+
+      {/* Content */}
+      <div className="relative z-30 flex h-full items-end justify-between px-2 py-4">
+        <div className="flex flex-col">
+          <h1 className="text-lg leading-none">{title}</h1>
+          <p className="text-xs">{subtitle}</p>
+        </div>
+        <ToggleButton isOn={isOn} setIsOn={setIsOn} />
+      </div>
+    </div>
+  );
+};
 
 const BentoContainer = () => {
   return (
@@ -50,8 +80,8 @@ const BentoContainer = () => {
       <div className="flex gap-2">
         <div className="leftBox flex flex-col gap-2 w-1/2">
           {/* Add Device */}
-          <div className="addDevice h-18 rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg text-white flex items-center justify-center">
-            <h2>Add device</h2>
+          <div className="addDevice h-18 flex items-center justify-center px-4 rounded-2xl bg-white/10 backdrop-blur-lg shadow-lg text-white">
+            <h2 className="flex items-center justify-between gap-4 text-lg"><IoAddOutline /> Add device</h2>
           </div>
 
           {/* Security */}
